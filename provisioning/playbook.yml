@@ -1,0 +1,53 @@
+---
+# Installation steps
+- hosts: all
+  sudo: yes
+  vars:
+    apt_cache_valid_time: 86400
+    nodejs_ppa: "ppa:chris-lea/node.js"
+    bl_user: "vagrant"
+    bl_path: "/vagrant"
+    vagrant_home: "/home/vagrant"
+  tasks:
+    - name: check that Ubuntu is running
+      assert:
+        that:
+          - ansible_distribution == 'Ubuntu'
+
+    - name: ensure ansible's apt_repository dependency is installed
+      apt: pkg=python-apt state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
+
+    - name: update apt cache
+      apt: update_cache=yes
+
+    - name: install git
+      apt: name=git-core state=latest
+
+    - name: install Python
+      apt: name={{ item }} state=latest
+      with_items:
+        - python
+        - python-dev
+        - python-virtualenv
+        - python-setuptools
+        - python-pip
+
+    - name: install PostgreSQL
+      apt: name={ {item }} state=latest
+      with_items:
+        - postgresql
+        - postgresql-server-dev-all
+        - libpq-dev
+        - python-psycopg2
+
+    - name: start PostgreSQL service
+      service: name=postgresql state=started
+
+    - name: ensure nodejs apt repository is up to date
+      apt_repository: repo={{ nodejs_ppa }}
+
+    - name: install Node.js
+      apt: name=nodejs state=latest
+
+    - name: install npm@latest
+      apt: name=npm state=latest
