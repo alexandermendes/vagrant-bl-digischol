@@ -20,7 +20,9 @@ Download and install:
 - [VirtualBox](https://www.virtualbox.org/)
 - [Vagrant (>=1.8.0)](https://www.vagrantup.com/)
 
-Then from the command line run:
+If you're on Windows 7 you should also upgrade Powershell to resolve an issue in recent versions of Vagrant where commands will hang indefinitely.
+
+From the command line run:
 
 ``` bash
 # Set environment variables (using your username and password)
