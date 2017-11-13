@@ -33,7 +33,7 @@
         - python-pip
 
     - name: install PostgreSQL
-      apt: name={ {item }} state=latest
+      apt: name={{ item }} state=latest
       with_items:
         - postgresql
         - postgresql-server-dev-all
