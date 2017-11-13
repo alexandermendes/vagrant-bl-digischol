@@ -4,7 +4,7 @@ A virtual machine configuration that installs some common development tools and 
 
 Includes:
 
-- Ubuntu 16.04
+- Ubuntu 14.04
 - git
 - Python
 - PostgreSQL
