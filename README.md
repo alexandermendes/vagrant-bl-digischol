@@ -15,9 +15,21 @@ Includes:
 
 ## Installation
 
-Install [VirtualBox](https://www.virtualbox.org/), [Vagrant (>=1.8.0)](https://www.vagrantup.com/), then from the command line run:
+Download and install:
+- [git](https://git-scm.com/downloads)
+- [VirtualBox](https://www.virtualbox.org/)
+- [Vagrant (>=1.8.0)](https://www.vagrantup.com/)
+
+Then from the command line run:
 
 ``` bash
+# Set environment variables (using your username and password)
+git config --global http.proxy http://username:password@loncache:7070
+set HTTP_PROXY=http://username:password@loncache.bl.uk:7070
+set HTTPS_PROXY=https://username:password@loncache.bl.uk:7070
+set VAGRANT_HTTP_PROXY=http://username:password@loncache.bl.uk:7070
+set VAGRANT_HTTPS_PROXY=https://username:password@loncache.bl.uk:7070
+
 # clone
 git clone https://github.com/alexandermendes/vagrant-bl-digischol
 
@@ -27,12 +39,6 @@ cd vagrant-bl-digischol
 # install plugins
 vagrant plugin install vagrant-proxyconf
 vagrant plugin install vagrant-vbguest
-
-# Set environment variables (using your username and password)
-set HTTP_PROXY=http://username:password@loncache.bl.uk:7070
-set HTTPS_PROXY=https://username:password@loncache.bl.uk:7070
-set VAGRANT_HTTP_PROXY=http://username:password@loncache.bl.uk:7070
-set VAGRANT_HTTPS_PROXY=https://username:password@loncache.bl.uk:7070
 
 # create the vm
 vagrant up
