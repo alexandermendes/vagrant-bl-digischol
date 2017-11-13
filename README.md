@@ -26,7 +26,6 @@ From the command line run:
 
 ``` bash
 # Set environment variables (using your username and password)
-git config --global http.proxy http://username:password@loncache:7070
 set HTTP_PROXY=http://username:password@loncache.bl.uk:7070
 set HTTPS_PROXY=https://username:password@loncache.bl.uk:7070
 set VAGRANT_HTTP_PROXY=http://username:password@loncache.bl.uk:7070
