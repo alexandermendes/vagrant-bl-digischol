@@ -57,3 +57,10 @@ cd /path/to/vagrant-bl-digischol
 git pull
 vagrant up --provision
 ```
+
+If you see errors related to guest permissions when executing the last
+command given above you can try:
+
+```
+vagrant reload --provision
+```
