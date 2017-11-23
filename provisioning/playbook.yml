@@ -29,6 +29,15 @@
         - python-setuptools
         - python-pip
 
+    - name: Update pip
+      pip: name=pip state=latest extra_args=--upgrade
+
+    - name: Update setuptools
+      pip: name=setuptools state=latest extra_args=--upgrade
+
+    - name: Update virtualenv
+      pip: name=virtualenv state=latest extra_args=--upgrade
+
     - name: install PostgreSQL
       apt: name={{ item }} state=latest
       with_items:
