@@ -17,9 +17,6 @@
     - name: ensure ansible's apt_repository dependency is installed
       apt: pkg=python-apt state=latest update_cache=true cache_valid_time={{ apt_cache_valid_time }}
 
-    - name: update apt cache
-      apt: update_cache=yes
-
     - name: install git
       apt: name=git-core state=latest
 
